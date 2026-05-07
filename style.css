@@ -13,11 +13,26 @@
     --radius: 10px;
 }
 
+/* Light Theme */
+:root[data-theme="light"] {
+    --bg: #e8e8e8;
+    --surface: #f5f5f5;
+    --border: #c0c0c0;
+    --text: #2a2a2a;
+    --text-muted: #6a6a6a;
+    --accent: #1a7f37;
+    --accent-subtle: rgba(26, 127, 55, 0.1);
+}
+
 /* Reset & Base */
 *, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+* {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 body {
@@ -42,15 +57,15 @@ body {
 
 .tagline {
     font-size: 18px;
-    color: #e6edf3;
+    color: var(--text);
 }
 
 .tagline .highlight {
-    color: #3fb950;
+    color: var(--accent);
 }
 
 .cursor {
-    color: #3fb950;
+    color: var(--accent);
     margin-left: 2px;
     animation: blink 1s step-end infinite;
 }
@@ -170,6 +185,17 @@ body {
     cursor: pointer;
     width: 18px;
     height: 18px;
+}
+
+.theme-toggle {
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+    transition: transform 0.2s;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
 }
 
 /* Terminal Content */
@@ -763,7 +789,7 @@ body {
 }
 
 .footer-social-icon:hover { border-color: var(--accent); }
-.footer-social-icon svg { color: #fff; }
+.footer-social-icon svg { color: var(--text); }
 
 .footer-copyright {
     font-size: 12px;
