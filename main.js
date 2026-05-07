@@ -10,7 +10,9 @@ const savedTheme = localStorage.getItem('theme') || 'dark';
 root.setAttribute('data-theme', savedTheme);
 updateThemeIcon(savedTheme);
 
-themeToggle.addEventListener('click', () => {
+themeToggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
     const currentTheme = root.getAttribute('data-theme');
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
     root.setAttribute('data-theme', newTheme);

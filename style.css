@@ -185,6 +185,7 @@ body {
     cursor: pointer;
     width: 18px;
     height: 18px;
+    pointer-events: none;
 }
 
 .theme-toggle {
@@ -192,6 +193,7 @@ body {
     width: 18px;
     height: 18px;
     transition: transform 0.2s;
+    pointer-events: auto;
 }
 
 .theme-toggle:hover {
