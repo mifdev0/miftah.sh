@@ -403,8 +403,10 @@ terminalInput.addEventListener('keydown', (e) => {
 
 // Auto-focus input
 terminalInput.focus();
-document.addEventListener('click', () => {
-    terminalInput.focus();
+document.querySelector('.terminal-container').addEventListener('click', (e) => {
+    if (e.target.tagName !== 'A' && !window.getSelection().toString()) {
+        terminalInput.focus();
+    }
 });
 
 // Initialize
