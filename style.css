@@ -663,7 +663,7 @@ body {
 }
 
 .footer-social-icon:hover { border-color: var(--accent); }
-.footer-social-icon i { width: 15px; height: 15px; color: var(--text); }
+.footer-social-icon svg { color: #fff; }
 
 .footer-copyright {
     font-size: 12px;
