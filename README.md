@@ -1,16 +1,18 @@
 # Terminal Portfolio - mifdev0
 
-A terminal-style personal portfolio website with a dark theme and retro aesthetic.
+A terminal-style personal portfolio website with a clean, modern aesthetic.
 
 ## Features
 
 - 🖥️ Terminal-style interface with macOS window controls
 - ⌨️ Interactive command-line interface
-- 🎨 Dark theme with green accent colors
+- 🎨 Light/Dark theme toggle with smooth transitions
 - 📱 Fully responsive design
 - ✨ Typing animations for all outputs
 - 🎯 Data-driven from JSON file
 - 🔄 Command history with arrow keys
+- 💡 Inline command suggestions (mobile)
+- 🎵 Mini music player with visualizer
 
 ## Commands
 
@@ -52,12 +54,13 @@ All content is stored in `data.json`. Update this file to customize:
 
 ## Design
 
-Based on the "Root Access" design system with:
-- Digital Brutalist aesthetic
-- High-contrast minimalism
-- CRT scanline effect
-- Terminal green accent color (#4be277)
-- Space Grotesk font family
+Inspired by GitHub's terminal aesthetic with:
+- Clean, minimal interface
+- Smooth light/dark theme switching
+- High-contrast color schemes
+- Monospace font (JetBrains Mono)
+- Adaptive green accent color
+- Mobile-optimized inline suggestions
 
 ## License
 
