@@ -20,6 +20,13 @@
       "thumbnail": "assets/projects/nalarasa.png",
       "github": "https://github.com/mifdev0/Pengabdian-PGSD",
       "demo": "https://pengabdian-pgsd.vercel.app"
+    },
+    {
+      "name": "WhatsApp Bot IT Helpdesk",
+      "description": "Chatbot AI berbasis WhatsApp untuk layanan IT Helpdesk — menjawab pertanyaan teknis mahasiswa secara otomatis, dilengkapi dashboard admin real-time untuk monitoring dan eskalasi ke staf IT.",
+      "thumbnail": "assets/projects/chatbot.png",
+      "github": "#",
+      "demo": "#"
     }
   ],
   "experience": [
