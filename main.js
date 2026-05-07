@@ -579,9 +579,11 @@ terminalInput.addEventListener('keydown', (e) => {
 // Auto-focus input
 terminalInput.focus({ preventScroll: true });
 document.querySelector('.terminal-container').addEventListener('click', (e) => {
-    if (e.target.tagName !== 'A' && !window.getSelection().toString()) {
-        terminalInput.focus({ preventScroll: true });
+    // Don't focus if clicking header or links or selecting text
+    if (e.target.closest('.terminal-header') || e.target.tagName === 'A' || window.getSelection().toString()) {
+        return;
     }
+    terminalInput.focus({ preventScroll: true });
 });
 
 // Initialize
