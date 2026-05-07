@@ -140,6 +140,7 @@ body {
 .prompt {
     color: var(--accent);
     font-weight: 700;
+    font-size: 14px;
     margin-right: 0.5rem;
     white-space: nowrap;
 }
@@ -214,6 +215,9 @@ body {
 
 @media (max-width: 540px) {
     .suggestions { display: none !important; }
+    .prompt { font-size: 11px; }
+    .terminal-input { font-size: 12px; }
+    .terminal-input-line { padding: 0.75rem 1rem; }
 }
 
 /* Scrollbar */
@@ -679,6 +683,7 @@ body {
     }
 
     .terminal-input { font-size: 12px; }
+    .prompt { font-size: 12px; }
 
     .profile-card {
         flex-direction: column;
