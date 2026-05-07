@@ -12,6 +12,7 @@ async function loadData() {
         const response = await fetch('data.json');
         data = await response.json();
         initializeFooter();
+        initMiniPlayer();
     } catch (error) {
         console.error('Failed to load data.json:', error);
     }
@@ -59,6 +60,111 @@ async function initializeFooter() {
     } catch (e) {
         renderPill('?');
     }
+}
+
+// Mini Music Player
+function initMiniPlayer() {
+    const playBtn = document.getElementById('mini-play-btn');
+    const visualizer = document.getElementById('mini-visualizer');
+    const playIcon = playBtn.querySelector('.mini-icon-play');
+    const pauseIcon = playBtn.querySelector('.mini-icon-pause');
+    const label = document.getElementById('mini-player-label');
+    const canvas = visualizer;
+    const ctx = canvas.getContext('2d');
+
+    if (!data.music || !data.music.audioSrc) return;
+
+    label.textContent = data.music.songTitle || 'enjoy with music';
+
+    let audio = null;
+    let audioCtx = null;
+    let analyser = null;
+    let animationId = null;
+    let isPlaying = false;
+
+    function drawIdle() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = '#3fb95044';
+        for (let i = 0; i < 28; i++) {
+            const h = 2 + Math.sin(i * 0.5) * 3;
+            ctx.fillRect(i * 4 + 4, canvas.height / 2 - h / 2, 2.5, h);
+        }
+    }
+
+    function drawVisualization() {
+        if (!analyser) return;
+
+        const bufferLength = analyser.frequencyBinCount;
+        const dataArray = new Uint8Array(bufferLength);
+
+        function render() {
+            animationId = requestAnimationFrame(render);
+            analyser.getByteFrequencyData(dataArray);
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            const barCount = Math.min(bufferLength, 24);
+            const barWidth = (canvas.width / barCount) - 1;
+            let x = 0;
+
+            for (let i = 0; i < barCount; i++) {
+                const barHeight = Math.max(2, (dataArray[i] / 255) * canvas.height);
+                ctx.fillStyle = '#3fb950';
+                ctx.fillRect(x, canvas.height - barHeight, barWidth, barHeight);
+                x += barWidth + 1;
+            }
+        }
+
+        render();
+    }
+
+    function stopVisualization() {
+        if (animationId) {
+            cancelAnimationFrame(animationId);
+            animationId = null;
+        }
+        drawIdle();
+    }
+
+    async function togglePlay() {
+        if (!audio) {
+            audio = new Audio(data.music.audioSrc);
+            audio.loop = true;
+            audio.volume = 0.4;
+        }
+
+        if (!audioCtx) {
+            audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            analyser = audioCtx.createAnalyser();
+            analyser.fftSize = 64;
+            const source = audioCtx.createMediaElementSource(audio);
+            source.connect(analyser);
+            analyser.connect(audioCtx.destination);
+        }
+
+        if (audioCtx.state === 'suspended') {
+            await audioCtx.resume();
+        }
+
+        if (isPlaying) {
+            audio.pause();
+            isPlaying = false;
+            playIcon.style.display = '';
+            pauseIcon.style.display = 'none';
+            visualizer.classList.remove('active');
+            stopVisualization();
+        } else {
+            await audio.play();
+            isPlaying = true;
+            playIcon.style.display = 'none';
+            pauseIcon.style.display = '';
+            visualizer.classList.add('active');
+            drawVisualization();
+        }
+    }
+
+    drawIdle();
+    playBtn.addEventListener('click', togglePlay);
 }
 
 // Terminal output functions
@@ -402,10 +508,10 @@ terminalInput.addEventListener('keydown', (e) => {
 });
 
 // Auto-focus input
-terminalInput.focus();
+terminalInput.focus({ preventScroll: true });
 document.querySelector('.terminal-container').addEventListener('click', (e) => {
     if (e.target.tagName !== 'A' && !window.getSelection().toString()) {
-        terminalInput.focus();
+        terminalInput.focus({ preventScroll: true });
     }
 });
 

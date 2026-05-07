@@ -1,7 +1,0 @@
-<svg width="300" height="300" xmlns="http://www.w3.org/2000/svg">
-  <rect width="300" height="300" fill="#1a221a"/>
-  <circle cx="150" cy="150" r="80" fill="none" stroke="#4be277" stroke-width="4"/>
-  <circle cx="150" cy="150" r="20" fill="#4be277"/>
-  <path d="M 150 70 L 150 150" stroke="#4be277" stroke-width="4"/>
-  <text x="150" y="250" font-family="monospace" font-size="18" fill="#4be277" text-anchor="middle">Coding Flow</text>
-</svg>

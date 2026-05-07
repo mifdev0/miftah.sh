@@ -60,6 +60,61 @@ body {
     50% { opacity: 0; }
 }
 
+/* Mini Music Player */
+.mini-player {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    padding: 0.35rem 0.75rem;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mini-play-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: border-color 0.15s, color 0.15s;
+    padding: 0;
+}
+
+.mini-play-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.mini-player-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    white-space: nowrap;
+}
+
+.mini-visualizer {
+    width: 120px;
+    height: 24px;
+    display: block;
+    opacity: 0.3;
+    transition: opacity 0.3s;
+}
+
+.mini-visualizer.active {
+    opacity: 1;
+}
+
 /* Terminal Container */
 .terminal-container {
     width: 100%;
@@ -722,6 +777,9 @@ body {
     .contact-label { min-width: 60px; }
 
     .contact-link { font-size: 12px; }
+
+    .mini-player-label { font-size: 10px; }
+    .mini-visualizer { width: 80px; }
 
     .footer-made-by { flex-direction: column; }
 }

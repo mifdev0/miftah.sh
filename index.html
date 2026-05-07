@@ -17,6 +17,16 @@
         <p class="tagline">This is <span class="highlight">not</span> your <span class="highlight">average</span> portfolio.<span class="cursor">_</span></p>
     </div>
 
+    <!-- Mini Music Player -->
+    <div class="mini-player" id="mini-player">
+        <button class="mini-play-btn" id="mini-play-btn" aria-label="Play music">
+            <svg class="mini-icon mini-icon-play" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+            <svg class="mini-icon mini-icon-pause" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display:none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+        </button>
+        <span class="mini-player-label" id="mini-player-label">enjoy with music</span>
+        <canvas class="mini-visualizer" id="mini-visualizer" width="120" height="24"></canvas>
+    </div>
+
     <!-- Terminal -->
     <main class="terminal-container">
         <!-- Terminal top bar -->

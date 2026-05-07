@@ -45,7 +45,9 @@
   "music": {
     "name": "My Playlist",
     "cover": "assets/music/playlist-cover.svg",
-    "link": "https://open.spotify.com/playlist/1V8jU7tB0R6eWmmSDR7FtN"
+    "link": "https://open.spotify.com/playlist/1V8jU7tB0R6eWmmSDR7FtN",
+    "audioSrc": "assets/music/MathildaJune-VintageDream.mp3",
+    "songTitle": "Vintage Dream - Mathilda June"
   },
   "contact": {
     "username": "mifdev0",
