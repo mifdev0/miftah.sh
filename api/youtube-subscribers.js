@@ -11,7 +11,8 @@ export default async function handler(req, res) {
 
     try {
         const url = `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${channelId}&key=${apiKey}`;
-        const response = await fetch(url);
+        const referer = `https://${req.headers.host}`;
+        const response = await fetch(url, { headers: { 'Referer': referer } });
         const json = await response.json();
         const count = json?.items?.[0]?.statistics?.subscriberCount;
         return res.status(200).json({ count: count ? Number(count) : null });
