@@ -559,6 +559,7 @@ body {
     border: 1px solid var(--border);
     border-radius: 8px;
     transition: border-color 0.15s;
+    overflow: hidden;
 }
 
 .contact-item:hover { border-color: var(--accent); }
@@ -576,6 +577,9 @@ body {
     color: var(--text-muted);
     text-decoration: none;
     transition: color 0.15s;
+    min-width: 0;
+    word-break: break-all;
+    overflow-wrap: anywhere;
 }
 
 .contact-link:hover { color: var(--accent); }
@@ -715,7 +719,9 @@ body {
         margin: 0 auto;
     }
 
-    .contact-label { min-width: 70px; }
+    .contact-label { min-width: 60px; }
+
+    .contact-link { font-size: 12px; }
 
     .footer-made-by { flex-direction: column; }
 }
