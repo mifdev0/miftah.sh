@@ -48,20 +48,11 @@ async function initializeFooter() {
     // Render loading state first
     renderPill('...');
 
-    // Fetch live count if config is available
-    const cfg = window.__CONFIG__;
-    if (!cfg?.YOUTUBE_API_KEY || !cfg?.YOUTUBE_CHANNEL_ID) {
-        renderPill('?');
-        return;
-    }
-
     try {
-        const url = `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${cfg.YOUTUBE_CHANNEL_ID}&key=${cfg.YOUTUBE_API_KEY}`;
-        const res = await fetch(url);
-        const json = await res.json();
-        const count = json?.items?.[0]?.statistics?.subscriberCount;
+        const res = await fetch('/api/youtube-subscribers');
+        const { count } = await res.json();
         if (count != null) {
-            renderPill(formatCount(Number(count)));
+            renderPill(formatCount(count));
         } else {
             renderPill('?');
         }
