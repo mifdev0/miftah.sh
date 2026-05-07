@@ -1,0 +1,52 @@
+{
+  "profile": {
+    "name": "Miftah",
+    "tagline": "Built different. Shipped faster.",
+    "status": "Available for Freelance",
+    "avatar": "assets/avatar.jpg",
+    "description": "Passionate about turning ideas into modern digital products through product thinking, clean design, and efficient development workflows."
+  },
+  "projects": [
+    {
+      "name": "Layak Bisnis",
+      "description": "LayakBisnis adalah website smart financial advisor untuk UMKM, khususnya bisnis F&B (Food & Beverage), yang membantu pengguna menghitung kelayakan usaha sebelum memulai atau mengembangkan bisnis.",
+      "thumbnail": "assets/projects/layakbisnis.png",
+      "github": "https://github.com/mifdev0/LayakBisnis",
+      "demo": "https://layak-bisnis.vercel.app"
+    },
+    {
+      "name": "Nalarasa",
+      "description": "Nalarasa adalah website platform digital psikoedukasi ramah anak yang dirancang untuk membantu anak memahami emosi, pikiran, dan kebiasaan positif melalui pendekatan yang hangat, interaktif, dan aman.",
+      "thumbnail": "assets/projects/nalarasa.png",
+      "github": "https://github.com/mifdev0/Pengabdian-PGSD",
+      "demo": "https://pengabdian-pgsd.vercel.app"
+    }
+  ],
+  "experience": [
+    {
+      "year": "2023-Present",
+      "role": "Staff It Helpdesk",
+      "company": "Universitas Muhammadiyah Surakarta.",
+      "type": "Onsite"
+    }
+  ],
+  "skills": {
+    "Frontend": ["React", "Vue.js", "TypeScript", "Tailwind CSS", "Next.js"],
+    "Backend": ["Node.js", "Express", "PostgreSQL"],
+    "Tools": ["Git", "Vercel", "Figma"]
+  },
+  "music": {
+    "name": "My Playlist",
+    "cover": "assets/music/playlist-cover.svg",
+    "link": "https://open.spotify.com/playlist/1V8jU7tB0R6eWmmSDR7FtN"
+  },
+  "contact": {
+    "username": "mifdev0",
+    "email": "mifthahulamri@gmai.com",
+    "github": "https://github.com/mifdev0",
+    "linkedin": "https://www.linkedin.com/in/mifamri",
+    "youtube": "https://youtube.com/@mifdev0",
+    "instagram": "https://instagram.com/mifamrii",
+    "youtubeSubscribers": "1.2K"
+  }
+}

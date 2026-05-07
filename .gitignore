@@ -1,0 +1,11 @@
+.env
+config.js
+node_modules/
+
+# Docs & tutorial (exclude semua .md kecuali README.md)
+*.md
+!README.md
+
+# Folder referensi desain
+stitch_command_line_developer_portfolio/
+tutorial/

@@ -1,0 +1,6 @@
+<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="300" fill="#0e150e"/>
+  <rect x="20" y="20" width="360" height="260" fill="#1a221a" stroke="#4be277" stroke-width="2"/>
+  <text x="200" y="150" font-family="monospace" font-size="24" fill="#4be277" text-anchor="middle">Project Beta</text>
+  <text x="200" y="180" font-family="monospace" font-size="14" fill="#8bd79b" text-anchor="middle">E-commerce Platform</text>
+</svg>

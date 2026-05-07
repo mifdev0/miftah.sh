@@ -1,0 +1,6 @@
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="200" fill="#1a221a"/>
+  <circle cx="100" cy="80" r="30" fill="#4be277"/>
+  <path d="M 60 140 Q 100 120 140 140" stroke="#4be277" stroke-width="3" fill="none"/>
+  <text x="100" y="180" font-family="monospace" font-size="14" fill="#4be277" text-anchor="middle">mifdev0</text>
+</svg>

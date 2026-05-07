@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>visitor@portfolio: ~ (zsh)</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide-static@0.16.29/font/lucide.min.css">
+</head>
+<body>
+    <!-- Tagline -->
+    <div class="tagline-container">
+        <p class="tagline">This is <span class="highlight">not</span> your <span class="highlight">average</span> portfolio.<span class="cursor">_</span></p>
+    </div>
+
+    <!-- Terminal -->
+    <main class="terminal-container">
+        <!-- Terminal top bar -->
+        <header class="terminal-header">
+            <div class="window-controls">
+                <div class="dot dot-red"></div>
+                <div class="dot dot-yellow"></div>
+                <div class="dot dot-green"></div>
+            </div>
+            <div class="terminal-title">visitor@portfolio: ~ (zsh)</div>
+            <div class="terminal-icons">
+                <i data-lucide="terminal"></i>
+                <i data-lucide="settings"></i>
+            </div>
+        </header>
+
+        <!-- Terminal content -->
+        <div class="terminal-content" id="terminal-output">
+            <!-- Output will be dynamically added here -->
+        </div>
+
+        <!-- Input line -->
+        <div class="terminal-input-line">
+            <span class="prompt">visitor@miftah:~$</span>
+            <div class="input-wrapper">
+                <input type="text" id="terminal-input" class="terminal-input" autocomplete="off" spellcheck="false">
+                <div class="suggestions" id="suggestions"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-made-by">
+            <span class="footer-label">MADE BY</span>
+            <div class="footer-pill" id="footer-pill">
+                <!-- Will be populated from data.json -->
+            </div>
+        </div>
+        <div class="footer-copyright">
+            © 1984-2024 TERMINAL_OS v2.0.4. Built with Logic.
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="config.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
