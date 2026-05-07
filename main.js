@@ -398,6 +398,8 @@ const commands = {
 // Handle command input
 const terminalInput = document.getElementById('terminal-input');
 const suggestionsEl = document.getElementById('suggestions');
+const inlineSuggest = document.getElementById('inline-suggest');
+const inputMirror = document.getElementById('input-mirror');
 
 const COMMAND_LIST = [
     { cmd: '/help',       desc: 'Show all commands' },
@@ -416,6 +418,18 @@ function showSuggestions(val) {
     const filtered = val === '/'
         ? COMMAND_LIST
         : COMMAND_LIST.filter(c => c.cmd.startsWith(val));
+
+    // Inline ghost suggestion (mirror-based positioning)
+    if (val.startsWith('/') && val !== '/') {
+        const match = COMMAND_LIST.find(c => c.cmd.startsWith(val));
+        if (match && match.cmd !== val) {
+            inlineSuggest.textContent = val + match.cmd.slice(val.length);
+        } else {
+            inlineSuggest.textContent = '';
+        }
+    } else {
+        inlineSuggest.textContent = '';
+    }
 
     if (!filtered.length || !val.startsWith('/')) {
         hideSuggestions();
@@ -445,6 +459,7 @@ function showSuggestions(val) {
 function hideSuggestions() {
     suggestionsEl.classList.remove('visible');
     suggestionsEl.innerHTML = '';
+    inlineSuggest.textContent = '';
     activeIndex = -1;
 }
 
@@ -475,7 +490,24 @@ terminalInput.addEventListener('keydown', (e) => {
         }
     }
 
+    // Inline suggestion completion via Tab
+    if (e.key === 'Tab' && inlineSuggest.textContent) {
+        e.preventDefault();
+        const val = terminalInput.value;
+        const match = COMMAND_LIST.find(c => c.cmd.startsWith(val));
+        if (match && match.cmd !== val) {
+            terminalInput.value = match.cmd;
+            inlineSuggest.textContent = '';
+        }
+        return;
+    }
+
+    if (e.key === 'Escape') {
+        inlineSuggest.textContent = '';
+    }
+
     if (e.key === 'Enter') {
+        inlineSuggest.textContent = '';
         hideSuggestions();
         const command = terminalInput.value.trim();
         if (command) {
